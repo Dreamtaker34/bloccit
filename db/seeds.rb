@@ -15,6 +15,8 @@ posts = Post.all
   )
 end
 
+Post.find_or_create_by(title: "Sponser Message", body: "This is a message from our sponsers")
+
   puts "Seed finished"
   puts "#{Post.count} posts created"
   puts "#{Comment.count} comments created"
