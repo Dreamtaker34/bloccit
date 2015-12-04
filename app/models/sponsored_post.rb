@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: sponsoredposts
+# Table name: sponsored_posts
 #
 #  id         :integer          not null, primary key
 #  title      :string
@@ -8,8 +8,9 @@
 #  price      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  topic_id   :integer
 #
 
-class Sponsoredpost < ActiveRecord::Base
+class SponsoredPost < ActiveRecord::Base
   belongs_to :topic
 end

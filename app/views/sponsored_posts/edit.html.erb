@@ -1,16 +1,16 @@
-<h1>New Ad Post</h1>
+<h1>Edit Ad Post</h1>
 
 <div class="row">
   <div class="col-md-4">
     <p>Rules for posting ads</p>
     <ul>
       <li>Make sure you keep your caps lock under control.</li>
-      <li>Don't act like you will get rich quick.</li>
-      <li>Keep it short, no one wants a block of text.</li>
+      <li>Don't act like you are som get rich kid.</li>
+      <li>Keep it short, no one wants a text block.</li>
     </ul>
   </div>
   <div class="col-md-8">
-    <%= form_for [@topic, @sponsoredpost] do |f| %>
+    <%= form_for [@sponsoredpost.topic, @sponsoredpost] do |f| %>
       <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, class: 'form-control', placeholder: "Enter your title" %>

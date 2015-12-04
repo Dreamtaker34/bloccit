@@ -3,6 +3,7 @@
 <%= link_to "Edit Topic", edit_topic_path, class: 'btn btn-success' %>
 <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
 
+<p><br class="spacer_" /></p>
 <div class="row">
   <div class="col-md-8">
     <p class="lead"><%= @topic.description %></p>
@@ -10,7 +11,7 @@
     <div class="media">
       <div class="media-body">
         <h4 class="media-heading">
-          <%=link_to post.title, topic_post_path(@topic, post) %>
+          <%= link_to post.title, topic_post_path(@topic, post) %>
         </h4>
         <small>
           submitted <%= time_ago_in_words(post.created_at) %> ago <br>
@@ -19,8 +20,22 @@
       </div>
     </div>
     <% end %>
-  </div>
-  <div class="col-md-4">
+<p><br class="spacer_" /></p>
     <%= link_to "New Post", new_topic_post_path(@topic), class: 'btn btn-success' %>
+    <%= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this topic?' } %>
+<p><br class="spacer_" /></p>
+    <h5>Sponsored Posts</h5>
+    <% @topic.sponsored_posts.each do |ad| %>
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to ad.title, topic_sponsored_post_path(@topic, ad) %>
+        </h4>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-md-8">
+    <%= link_to "New Sponsored Post", new_topic_sponsored_post_path(@topic), class: 'btn btn-success' %>
   </div>
 </div>

@@ -10,6 +10,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'annotate'
+  gem 'web-console'
 end
 
 group :development, :test do
