@@ -35,6 +35,12 @@ posts = Post.all
   )
 end
 
+user = User.first
+user.update_attributes!(
+  email: 'dreamtaker@gmail.com',
+  password: '123456'
+)
+
 admin = User.create!(
   name: 'Admin User',
   email: 'admin@example.com',

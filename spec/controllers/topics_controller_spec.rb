@@ -146,6 +146,20 @@ RSpec.describe TopicsController, type: :controller do
     end
   end
 
+  context "moderator user" do
+    before do
+      user = User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld", role: :moderator)
+      create_session(user)
+    end
+
+    describe "GET index" do
+      it "returns http success" do
+        get :index
+        expect(response).to have_http_status(:success)
+      end
+    end
+  end
+
   context "admin user" do
     before do
       user = User.create!(name: "Bloccit User", email: "user@bloccit.com", password: "helloworld", role: :admin)
