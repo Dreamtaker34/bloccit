@@ -59,14 +59,35 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :body)
   end
 
+  # def authorize_user
+  #   post = Post.find(params[:id])
+  #   unless current_user == post.user || current_user.admin?
+  #      if current_user.moderator?
+  #      else
+  #       flash.now[:alert] = "You must be an admin to do that."
+  #       redirect_to [post.topic, post]
+  #      end
+  #   end
+  # end
+
   def authorize_user
     post = Post.find(params[:id])
-    unless current_user == post.user || current_user.admin?
-       if current_user.moderator?
-       else
-        flash.now[:alert] = "You must be an admin to do that."
+    action = params[:action]
+
+    mod_actions = %w[edit update create new]
+    admin_actions = %w[destroy]
+    if current_user ==post.user
+
+    elsif mod_actions.include?(action)
+      if !current_user.admin? && !current_user.moderator?
+        flash[:alert] = "You must be an admin or moderator to do that."
         redirect_to [post.topic, post]
-       end
+      end
+    elsif admin_actions.include?(action)
+      if !current_user.admin?
+        flash[:alert] = "You must be an admin to do that."
+        redirect_to [post.topic, post]
+      end
     end
   end
 end

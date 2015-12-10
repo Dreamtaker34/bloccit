@@ -38,7 +38,7 @@ end
 user = User.first
 user.update_attributes!(
   email: 'dreamtaker@gmail.com',
-  password: '123456'
+  password: 'helloworld'
 )
 
 admin = User.create!(
@@ -51,6 +51,12 @@ admin = User.create!(
 member = User.create!(
   name: 'Member User',
   email: 'member@example.com',
+  password: 'helloworld'
+)
+
+moderator = User.create!(
+  name: 'Moderator User',
+  email: 'moderator@example.com',
   password: 'helloworld'
 )
 
