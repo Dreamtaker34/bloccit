@@ -8,11 +8,13 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  rating      :integer
+#  rating_id   :integer
 #
 
 class Topic < ActiveRecord::Base
   has_many :posts, dependent: :destroy
   has_many :labelings, as: :labelable
   has_many :labels, through: :labelings
+
+  belongs_to :rating
 end

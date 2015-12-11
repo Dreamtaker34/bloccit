@@ -9,7 +9,7 @@
 #  updated_at :datetime         not null
 #  topic_id   :integer
 #  user_id    :integer
-#  rating     :integer
+#  rating_id  :integer
 #
 
 class Post < ActiveRecord::Base
@@ -18,6 +18,7 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :labelings, as: :labelable
   has_many :labels, through: :labelings
+  belongs_to :rating
 
   default_scope { order('created_at DESC') }
 

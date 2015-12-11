@@ -16,6 +16,6 @@ class Rating < ActiveRecord::Base
 
   def self.update_rating(rating_string)
     return Rating.none if rating_string.blank?
-    Rating.find_or_create_by(severity: rating_string)
+    Rating.find_or_create_by(severity: rating_string.to_i)
   end
 end

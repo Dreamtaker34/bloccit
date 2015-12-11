@@ -8,7 +8,7 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  rating      :integer
+#  rating_id   :integer
 #
 
 require 'rails_helper'
