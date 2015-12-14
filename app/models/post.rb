@@ -9,6 +9,8 @@
 #  updated_at :datetime         not null
 #  topic_id   :integer
 #  user_id    :integer
+#  rating_id  :integer
+#  rank       :float
 #
 
 class Post < ActiveRecord::Base

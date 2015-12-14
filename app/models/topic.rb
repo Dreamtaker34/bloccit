@@ -8,6 +8,7 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  rating_id   :integer
 #
 
 class Topic < ActiveRecord::Base
