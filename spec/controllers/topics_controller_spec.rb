@@ -29,7 +29,7 @@ RSpec.describe TopicsController, type: :controller do
         get :show, {id: my_private_topic.id}
         expect(response).to redirect_to(new_session_path)
       end
-      
+
       it "returns http success" do
         get :show, {id: my_topic.id}
         expect(response).to have_http_status(:success)
