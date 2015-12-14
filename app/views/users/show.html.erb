@@ -18,10 +18,9 @@
     </div>
   </div>
 </div>
-<% if no_user_posts %>
+<% if @user.posts.blank? %>
   <h3>Has not made any posts.</h3>
-<% end %>
-<% if !no_user_posts %>
+<% else %>
   <h2>Posts</h2>
   <%= render @user.posts %>
 <% end %>
@@ -30,4 +29,10 @@
 <% else %>
   <h2>Comments</h2>
   <%= render @user.comments %>
+<% end %>
+<% if @favorited_posts.blank? %>
+  <h3>Has not favorited any posts.</h3>
+<% else %>
+  <h2>Favorited Posts</h2>
+  <%= render @favorited_posts %>
 <% end %>
